@@ -10,35 +10,45 @@ class Product extends Model {}
 Product.init(
   {
     // define columns
- // define columns like below: 
-    // Book.init(
-    //   {
-    //     book_id: {
-    //       type: DataTypes.INTEGER,
-    //       primaryKey: true,
-    //       autoIncrement: true
-    //     },
-    //     title: {
-    //       type: DataTypes.STRING
-    //     },
-    //     author: {
-    //       type: DataTypes.STRING
-    //     },
-    //     isbn: {
-    //       type: DataTypes.STRING
-    //     },
-    //     pages: {
-    //       type: DataTypes.INTEGER
-    //     },
-    //     edition: {
-    //       type: DataTypes.INTEGER
-    //     },
-    //     is_paperback: {
-    //       type: DataTypes.BOOLEAN
-    //     }
-    //   },
+    {
+        id: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          primaryKey: true,
+          autoIncrement: true
+        },
+        product_name: {
+          type: DataTypes.STRING,
+          allowNull: false
+        },
+        price: {
+          type: DataTypes.DECIMAL,
+          allowNull: false,
+          //validate if value is decimal??
+          validate: {
+            isDecimal: true,
+          },
+      
+        },
+        stock: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          defaultValue: '10',
+           //validate if value is numeric??
+           validate: {
+            isNumeric: true, 
+          },
+        },
+        category_id: {
+          type: DataTypes.INTEGER,
+            references: {
+              model: 'category',
+              key: 'id',
+            }
+      },
 
-  },
+    },
+  }
   {
     sequelize,
     timestamps: false,
