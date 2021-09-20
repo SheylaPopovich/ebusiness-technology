@@ -7,34 +7,29 @@ class ProductTag extends Model {}
 ProductTag.init(
   {
     // define columns
-     // define columns like below: 
-    // Book.init(
-    //   {
-    //     book_id: {
-    //       type: DataTypes.INTEGER,
-    //       primaryKey: true,
-    //       autoIncrement: true
-    //     },
-    //     title: {
-    //       type: DataTypes.STRING
-    //     },
-    //     author: {
-    //       type: DataTypes.STRING
-    //     },
-    //     isbn: {
-    //       type: DataTypes.STRING
-    //     },
-    //     pages: {
-    //       type: DataTypes.INTEGER
-    //     },
-    //     edition: {
-    //       type: DataTypes.INTEGER
-    //     },
-    //     is_paperback: {
-    //       type: DataTypes.BOOLEAN
-    //     }
-    //   },
+      {
+        id: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          primaryKey: true,
+          autoIncrement: true
+        },
+        product_id: {
+          type: DataTypes.INTEGER,
+            references: {
+              model: 'product',
+              key: 'id',
+            }
+      },
+      tag_id: {
+        type: DataTypes.INTEGER,
+          references: {
+            model: 'tag',
+            key: 'id',
+          }
+    },
   },
+  }
   {
     sequelize,
     timestamps: false,
