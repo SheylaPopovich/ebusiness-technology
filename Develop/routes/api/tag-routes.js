@@ -6,54 +6,83 @@ const { Tag, Product, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all tags
   // be sure to include its associated Product data
+    try {
+      const tagData = await Tag.findAll({
+        include: [{ model: Product, through: ProductTag }],
+      });
+      res.status(200).json(libraryCardData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
-   //USE EXAMPLE BELOW FOR THIS SECTION
-  // router.get('/', async (req, res) => {
-  //   try {
-  //     const libraryCardData = await LibraryCard.findAll({
-  //       include: [{ model: Reader }],
-  //     });
-  //     res.status(200).json(libraryCardData);
-  //   } catch (err) {
-  //     res.status(500).json(err);
-  //   }
-  // });
-});
 
 
 
 router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
-
- //USE EXAMPLE BELOW FOR THIS SECTION
-  // router.get('/:isbn', (req, res) => {
-  //   // Get one book from the book table
-  //   Book.findOne(
-  //     {
-  //       // Gets the book based on the isbn given in the request parameters
-  //       where: { 
-  //         isbn: req.params.isbn 
-  //       },
-  //     }
-  //   ).then((bookData) => {
-  //     res.json(bookData);
-  //   });
-  // });
-
-
+  try {
+    const tagData = await Tag.findByPk(req.params.id, {
+      include: [{ model: Product, through: ProductTag }],
+    });
+    if (!tagData) {
+      res.status(400).json({ message: 'No tag found with that id!' });
+    }
+    res.status(200).json(tagData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
 
 router.post('/', (req, res) => {
   // create a new tag
+  try {
+    const tagData = await Tag.create(req.body);
+    res.status(200).json(tagData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
+
 
 router.put('/:id', (req, res) => {
   // update a tag's name by its `id` value
+  try {
+    const tagData = await Tag.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!tagData[0]) {
+      res.status(400).json({ message: 'No tag found with that id!' });
+      return;
+    }
+    res.status(200).json(tagData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
 
 router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
+  try {
+    const tagData = await Tag.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!tagData) {
+      res.status(400).json({ message: 'No category found with that id!' });
+      return;
+    }
+    res.status(200).json(tagData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
 
 module.exports = router;

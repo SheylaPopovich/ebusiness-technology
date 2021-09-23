@@ -7,7 +7,7 @@ class Category extends Model {}
 Category.init(
   {
     // define columns like below: 
-      {
+      
         id: {
           type: DataTypes.INTEGER,
           allowNull: false,
@@ -19,7 +19,7 @@ Category.init(
           allowNull: false
         },
       },
-  }
+  
   {
     sequelize,
     timestamps: false,
