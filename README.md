@@ -2,7 +2,7 @@
 
 <p align="center">
 <a href="#description">Description</a> |
-<a href="#projectm demo">Project Demo</a> |
+<a href="#project demo">Project Demo</a> |
 <a href="#contact">Contact</a> |
 <a href="#license">License</a>
 </p>
@@ -14,10 +14,12 @@ This is a command-line application takes in information about employees on a sof
 <br>
 
 ## **Project Demo** 
-This [demo video](https://drive.google.com/file/d/1ywm0i0hCYWGoOBOJTJFxC3uHiBi6s-XQ/view?usp=sharing) will walk you through the application and its usage.
-![alt text](https://user-images.githubusercontent.com/84256748/132050856-1e175010-b43e-4669-a615-4a3f29ece45e.png)
+This [demo video](https://drive.google.com/file/d/1ywm0i0hCYWGoOBOJTJFxC3uHiBi6s-XQ/view) will walk you through the application and its usage.
+![alt text](https://github.com/SheylaPopovich/ebusiness-technology/blob/main/Assets/ebusiness-tech-demo.png)
+
 <br>
 <br>
+
 
 ## **Contact**
 If you want to contact me you can email me at [SheylaPopovich](mailto:sheylapopovich@gmail.com).
