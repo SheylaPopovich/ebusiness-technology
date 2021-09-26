@@ -9,7 +9,7 @@
 <br>
 
 ## **Description**
-This is a command-line application takes in information about employees on a software engineering team, then dynamically generates a webpage that will display your built team. The application will be invoked with the following command: node index.js. This program is a perfect tool to manage all members of organization and company's profiles information.
+ A mysql database and application backend for an e-commerce site. Built using MySQL2, Express, Sequelize and dotenv.
 <br>
 <br>
 
