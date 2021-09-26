@@ -10,16 +10,15 @@ class Product extends Model {}
 Product.init(
   {
     // define columns
-    {
-        id: {
+          id: {
           type: DataTypes.INTEGER,
           allowNull: false,
           primaryKey: true,
-          autoIncrement: true
+          autoIncrement: true,
         },
         product_name: {
           type: DataTypes.STRING,
-          allowNull: false
+          allowNull: false,
         },
         price: {
           type: DataTypes.DECIMAL,
@@ -33,7 +32,7 @@ Product.init(
         stock: {
           type: DataTypes.INTEGER,
           allowNull: false,
-          defaultValue: '10',
+          defaultValue: 10,
            //validate if value is numeric??
            validate: {
             isNumeric: true, 
@@ -48,7 +47,7 @@ Product.init(
       },
 
     },
-  }
+  
   {
     sequelize,
     timestamps: false,
